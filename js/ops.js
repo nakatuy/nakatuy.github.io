@@ -6197,3 +6197,209 @@ Ops.User.nakatuy.HyperLink_NewWindow.prototype = new CABLES.Op();
 
 
 
+
+
+// **************************************************************
+// 
+// Ops.Html.FontFile
+// 
+// **************************************************************
+
+Ops.Html.FontFile = function()
+{
+CABLES.Op.apply(this,arguments);
+const op=this;
+const attachments={};
+// var filename=op.addInPort(new CABLES.Port(op,"file",CABLES.OP_PORT_TYPE_VALUE,{ display:'file',type:'string' } ));
+// fontname=op.addInPort(new CABLES.Port(op,"family",CABLES.OP_PORT_TYPE_VALUE,{ type:'string' } ));
+
+const
+    filename=op.inFile("file"),
+    fontname=op.inValueString("family"),
+    outLoaded=op.outValue("Loaded"),
+    loadedTrigger=op.outTrigger("Loaded Trigger");
+
+filename.onChange=function()
+    {
+        outLoaded.set(false);
+        addStyle();
+    };
+
+fontname.onChange=addStyle;
+
+var fontFaceObj;
+
+function addStyle()
+{
+    if(filename.get() && fontname.get())
+    {
+        if(document.fonts) {
+            fontFaceObj = new FontFace(fontname.get(), 'url(' + filename.get() + ')');
+            //console.log(fontFaceObj);
+
+            // Add the FontFace to the FontFaceSet
+            document.fonts.add(fontFaceObj);
+
+            // Get the current status of the FontFace
+            // (should be 'unloaded')
+            // console.info('Current status', fontFaceObj.status);
+
+            // Load the FontFace
+            fontFaceObj.load();
+
+            // Get the current status of the Fontface
+            // (should be 'loading' or 'loaded' if cached)
+            // console.info('Current status', fontFaceObj.status);
+
+            // Wait until the font has been loaded, log the current status.
+            fontFaceObj.loaded.then((fontFace) => {
+                // console.info('Current status', fontFace.status);
+                // console.log(fontFace.family, 'loaded successfully.');
+                outLoaded.set(true);
+                loadedTrigger.trigger();
+
+                // Throw an error if loading wasn't successful
+            }, (fontFace) => {
+            console.error('Font loading error! Current status', fontFaceObj.status);
+            });
+        } else { // font loading api not supported
+            var fileUrl=op.patch.getFilePath(String(filename.get()));
+            var styleStr=''
+                .endl()+'@font-face'
+                .endl()+'{'
+                .endl()+'  font-family: "'+fontname.get()+'";'
+                .endl()+'  src: url("'+fileUrl+'") format("truetype");'
+                .endl()+'}';
+
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = styleStr;
+            document.getElementsByTagName('head')[document.getElementsByTagName('head').length-1].appendChild(style);
+            // TODO: Poll if font loaded
+        }
+    }
+}
+
+
+};
+
+Ops.Html.FontFile.prototype = new CABLES.Op();
+CABLES.OPS["0cf90109-cccd-4633-9c77-8aaf53eae15c"]={f:Ops.Html.FontFile,objName:"Ops.Html.FontFile"};
+
+
+
+
+// **************************************************************
+// 
+// Ops.Math.Modulo
+// 
+// **************************************************************
+
+Ops.Math.Modulo = function()
+{
+CABLES.Op.apply(this,arguments);
+const op=this;
+const attachments={};
+
+const result=op.outValue("result");
+const number1=op.inValueFloat("number1");
+const number2=op.inValueFloat("number2");
+const pingpong=op.inValueBool("pingpong");
+
+var doPingPong=false;
+
+number1.onChange=exec;
+number2.onChange=exec;
+
+number1.set(1);
+number2.set(2);
+
+pingpong.onChange=updatePingPong;
+
+function exec()
+{
+    var n2=number2.get();
+    var n1=number1.get();
+
+    if(doPingPong)
+    {
+        var r=n1 % n2*2;
+        if(r>n2) result.set( n2 * 2.0-r );
+            else result.set(r);
+        return;
+    }
+    else
+    {
+        var re=n1 % n2;
+        if(re!=re) re=0;
+        result.set(re);
+    }
+}
+
+function updatePingPong()
+{
+    doPingPong=pingpong.get();
+}
+
+
+};
+
+Ops.Math.Modulo.prototype = new CABLES.Op();
+CABLES.OPS["ebc13b25-3705-4265-8f06-5f985b6a7bb1"]={f:Ops.Math.Modulo,objName:"Ops.Math.Modulo"};
+
+
+
+
+// **************************************************************
+// 
+// Ops.Anim.ValueChangeAnim
+// 
+// **************************************************************
+
+Ops.Anim.ValueChangeAnim = function()
+{
+CABLES.Op.apply(this,arguments);
+const op=this;
+const attachments={};
+const
+    exe=op.inTrigger("exe"),
+    inValue=op.inValue("Value"),
+    duration=op.inValueFloat("duration"),
+    result=op.outValue("result"),
+    finished=op.outTrigger("Finished");
+
+const anim=new CABLES.Anim();
+anim.createPort(op,"easing",init);
+
+anim.loop=false;
+duration.set(0.5);
+
+duration.onChange=init;
+inValue.onChange=init;
+
+function init()
+{
+    anim.clear(CABLES.now()/1000.0);
+    anim.setValue(
+        duration.get()+CABLES.now()/1000.0, inValue.get(),triggerFinished);
+}
+
+function triggerFinished()
+{
+    finished.trigger();
+}
+
+exe.onTriggered=function()
+{
+    var t=CABLES.now()/1000;
+    var v=anim.getValue(t);
+
+    result.set(v);
+};
+
+};
+
+Ops.Anim.ValueChangeAnim.prototype = new CABLES.Op();
+CABLES.OPS["e5b0b016-9663-4c9d-9365-f54ae3c5fbb6"]={f:Ops.Anim.ValueChangeAnim,objName:"Ops.Anim.ValueChangeAnim"};
+
+
