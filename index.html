@@ -1,25 +1,226 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Creative Plus | for strategy to the future</title>
-    <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- jQuery読み込み -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- BootstrapのJS読み込み -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- オリジナル CSS -->
-    <link rel="stylesheet" type="text/css" href="./css/original_style.css">
+	
+	<!-- cables 背景 -->
+	<canvas id="glcanvas" width="100vw" height="100vh"></canvas>
+
+    <title>Creative Plus | Digital Agency</title>
+
+	<meta name="keywords" content="web design, wordpress, visual art, Interactive">
+    <meta name="description" content="Creative Plus is a small digital agency.">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+
+	<!-- ファビコン -->
+	<link rel="icon" href="./icon/favicon.ico">
+ 
+	<!-- スマホ用アイコン -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./icon/apple-touch-icon.png">
+
   </head>
   <body>
-    <center>
-        <div class="cables">
-            <iframe src="./creative-plus.html" width="800" height="450" frameborder="0" style="border:0" allowfullscreen scrolling="no"></iframe>
-        </div>
-        Click the logo to change.Please try moving the mouse while dragging.
-    </center>
-  </body>
+
+<div class="container-fluid">
+	<!-- ヘッダー -->
+	<div class="row sticky-top">
+		<div class="col-md-1 page-header">
+		</div>
+		<div class="col-md-10 page-header">
+			<nav class="navbar navbar-expand-sm navbar-dark">
+				<a class="navbar-brand" href="./index.html">Creative Plus</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link active" href="#about">About</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#activity">Activity</a>
+						</li>
+						<!--<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								エクスポート
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="#">サマリーデータ出力</a>
+								<a class="dropdown-item" href="#">明細データ出力</a>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="col-md-1 page-header">
+		</div>
+	</div>
+	<!-- トップ　コンテンツ -->
+	<div class="row">
+		<div class="col-md-12 top-space">
+			<!-- <iframe src="./top-media/index.html" width="800" height="450" frameborder="0" style="border:0" allowfullscreen scrolling="no"></iframe> -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-1"><!-- 全体余白 -->
+		</div>
+		<div class="col-md-10"><!-- メインコンテンツ　ここから -->
+			<div class="row"><!-- コンテンツタイトル -->
+				<div id="about" class="col-md-12 contents-title">
+					<h1>About</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 contents-about">
+					Creative Plus is a small digital agency.<br>
+					I can support "planning" & "design" & "operation" & "improvement" that governs the story of utilizing websites.<br>
+					<br>
+					Also focusing on promoting digital creative expression and research and development of expression methods.
+					<!-- Creative Plus は ちいさなデジタルエージェンシーです。<br>
+					WEBサイト活用のストーリーを司る「企画」×「制作」×「運用」×「改善」をサポートすることができます。<br>
+					<br>
+					またデジタルクリエイティブ表現を促進することと、その表現方法の研究開発にも注力しています。
+					-->
+
+				</div>
+			</div>
+			<div class="row"><!-- コンテンツタイトル -->
+				<div id="activity" class="col-md-12 contents-title">
+					<h1>Activity</h1>
+				</div>
+			</div>
+			<div class="row contents-margin">
+				<div class="col-md-3">
+					<h2>
+						WebSite Design
+					</h2>
+					<p>
+						WEB site desing by 
+						<ul>
+							<li>html + css</li>
+							<li>WordPress</li>
+						</ul>
+						<!-- html+css もしくは WordpressによるWEBサイト制作を行います。-->
+					</p>
+
+					<!-- <a class="btn btn-dark btn-xs" href="#">View details »</a> -->					
+				</div>
+				<div class="col-md-3">
+					<h2>
+						WEB Marketing
+					</h2>
+					<p>
+						Marketing planning, advertising operations, and consulting.
+						<!-- マーケティング企画・広告運用・コンサルティング。 -->
+					</p>
+						
+				</div>
+				<div class="col-md-3">
+					<h2>
+						Blog Media
+					</h2>
+					<p>
+						Management of the creative art blog media "<a href="https://blog.creative-plus.net/" target="_blank">Creative Plus</a>" for the purpose of digital creative education and knowledge sharing.
+						<!--デジタルクリエイティブ教育を目的とし、知識共有の為のデジタルアート系ブログメディア「<a href="https://blog.creative-plus.net/" target="_blank">Creative Plus</a>」の運営。
+						-->
+					</p>
+					
+				</div>
+				<div class="col-md-3">
+					<h2>
+						R&D
+					</h2>
+					<p>
+						Research and development on digital creative.
+						<ul>
+							<li>Creative design tools</li>
+							<li>Real-time(visual / music)</li>
+							<li>Interactive(visual / music)</li>
+						</ul>
+						<!--デジタルクリエイティブに関する研究開発。
+						<ul>
+							<li>プロトタイプクリエイティブツールもしくは環境</li>
+							<li>リアルタイム表現（映像・音楽）</li>
+							<li>インタラクティブ表現（映像・音楽）</li>
+						</ul>
+						-->
+					</p>
+					
+				</div>			
+			</div>
+		</div><!-- メインコンテンツ　ここまで -->
+		<div class="col-md-1"><!-- 全体余白 -->
+		</div>
+	</div>
+	<div class="row"><!-- Footer -->
+		<div class="col-md-12 page-footer">
+			<div align="center" style="font-size:75%">Copyright© Creative Plus , 2020 All Rights Reserved.</div>
+		</div>
+	</div>
+</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+
+	<!-- cables 背景スクリプト -->
+	<script type="text/javascript"  src="js/ammo.js"></script>
+    <script type="text/javascript" src="js/patch.js"></script>
+
+    <script>
+        function showError(errId, errMsg) {
+            alert('An error occured: ' + errId + ', ' + errMsg);
+        }
+
+        function patchInitialized() {
+            // You can now access the patch object (CABLES.patch), register variable watchers and so on
+        }
+
+        function patchFinishedLoading() {
+            // The patch is ready now, all assets have been loaded
+        }
+
+        document.addEventListener('DOMContentLoaded', function(event) {
+            CABLES.patch = new CABLES.Patch({
+                patch: CABLES.exportedPatch,
+                prefixAssetPath: '',
+                glCanvasId: 'glcanvas',
+                glCanvasResizeToWindow: true,
+                onError: showError,
+                onPatchLoaded: patchInitialized,
+                onFinishedLoading: patchFinishedLoading,
+            });
+        });
+    </script>
+	
+
+	<!-- スムーズスクロール部分の記述 -->
+	<script>
+		$(function(){
+		   // #で始まるアンカーをクリックした場合に処理
+		   $('a[href^=#]').click(function() {
+			  // スクロールの速度
+			  var speed = 400; // ミリ秒
+			  // アンカーの値取得
+			  var href= $(this).attr("href");
+			  // 移動先を取得
+			  var target = $(href == "#" || href == "" ? 'html' : href);
+			  // 移動先を数値で取得
+			  var position = target.offset().top;
+			  // スムーススクロール
+			  $('body,html').animate({scrollTop:position}, speed, 'swing');
+			  return false;
+		   });
+		});
+	</script>
+</body>
 </html>

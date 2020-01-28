@@ -1,0 +1,143 @@
+/*Empty CSS file for your own CSS*/
+
+body {
+    background-color: #000000;
+    color: #c4c4c4;
+}
+
+a {
+    color: #2DA4A8;
+}
+
+a:hover{
+    color: #FEAA3A;
+    text-decoration: none;
+}
+
+.page-header{
+    background-color: #4d4d4d99;
+    color: #f0f0f0;
+    font-family: 'Righteous', cursive;
+}
+
+.page-header a{
+    color: #898989;
+}
+
+.contents-title{
+    border-bottom:solid 1px #666666;
+    font-family: 'Righteous', cursive;
+    margin-bottom: 10px;
+}
+
+.page-footer{
+    background-color: #4d4d4d99;
+    color: #cecece;
+    font-family: 'Righteous', cursive;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.contents-margin{
+    margin-bottom: 100px;
+}
+
+.contents-about{
+    font-size: 110%;
+    padding: 3px 20px;
+    margin-bottom: 100px;
+}
+
+/* top-space */
+.top-space{
+    position:relative;
+    width:100%;
+    height:0;
+    padding-top:40.634%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cables BackGround */
+#glcanvas{
+    position: fixed; /*canvasを固定*/
+    top: 0; /*canvasを上に固定*/
+}
+
+/* Cables read */
+.cables{
+    position:relative;
+    width:90%;
+    height:0;
+    padding-top:50.634%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+.cables iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+/* for My PortFolio Page */
+.portfolio--frame{
+    border:solid 1px #000000;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #ffffff;
+    margin: 10px 0px;
+}
+
+.portfolio--title{
+    border-top:solid 1px #666666;
+    padding: 10px;
+    font-size: 140%;
+}
+
+.portfolio--spaceA{
+    margin: 50px 0px;
+}
+
+.portfolio--spaceB{
+    margin: 0px 10px;
+}
+
+.portfolio--category{
+    border-top:solid 2px #666666;
+    padding: 10px;
+    font-size: 110%;
+}
+
+.portfolio--lineA{
+    border-top:solid 1px #666666;
+    padding: 10px;
+}
+
+.portfolio--lineB{
+    border-top:dashed 2px #b8b8b8;
+    padding: 10px;
+}
+
+.youtube{
+    position:relative;
+    width:100%;
+    height:0;
+    padding-top:56.25%;
+    padding-bottom:10%;
+}
+.youtube iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.icon::before {
+	content:'\f778';
+	font-family:'Font Awesome 5 Brands';
+    font-weight: 900;
+    font-size: 120%;
+}
