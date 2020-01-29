@@ -50,7 +50,7 @@ a:hover{
 
 /* top-space */
 .top-space{
-    width: 100vw;
+    width: 90vw;
     height: 80vh;
     display: flex; /* 要素をflexboxに対応させる */
     align-items: center; /* 縦方向の中央揃え */
