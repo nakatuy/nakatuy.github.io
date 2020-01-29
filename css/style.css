@@ -48,14 +48,25 @@ a:hover{
     margin-bottom: 100px;
 }
 
-/* top-space */
+/* top-space (https://mae.chab.in/archives/2749) */
 .top-space{
     width: 100vw;
     height: 100vh;
-    display: flex; /* 要素をflexboxに対応させる */
-    align-items: center; /* 縦方向の中央揃え */
-    justify-content: center; /* 横方向の中央揃え */
-    flex-direction: column; /* 子要素の並びを上から下にする（要素の改行に対応） */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;/* 要素をflexboxに対応させる */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;/* 縦方向の中央揃え */
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;/* 横方向の中央揃え */
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;/* 子要素の並びを上から下にする（要素の改行に対応） */
     font-family: 'Righteous', cursive;
     color: #cecece;
 }
