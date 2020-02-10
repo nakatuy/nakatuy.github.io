@@ -48,6 +48,14 @@ a:hover{
     margin-bottom: 100px;
 }
 
+/* anchor space (https://y-com.info/contents/?p=5641) */
+.anchor{
+    display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+
 /* top-space (https://mae.chab.in/archives/2749) */
 .top-space{
     width: 100vw;
@@ -93,6 +101,59 @@ a:hover{
     left:0;
     width:100%;
     height:100%;
+}
+
+/* Contact Form */
+.form {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 0.4em 0.8em;
+    width: 85%;
+}
+  
+.form:focus {
+    border: 1px solid #2DA4A8;
+    box-shadow: none;
+    outline: none;
+}
+
+.submit {
+    -webkit-appearance: none;
+    background-color: rgba(136, 136, 136, 0.37);
+    background-image: none;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    margin: 0 0 1em;
+    padding: 0.6em 2em;
+    text-decoration: none;
+}
+  
+.submit:hover,
+.submit:focus {
+    outline: none;
+}
+
+.jpn-text {
+    position: relative;
+    border-radius: 10px;
+    padding: 10px 5px 10px 5px;
+    box-sizing: border-box;
+    font-style: italic;
+    font-size: small;
+    color: #acacac;
+    background: #c7c7c71f;    
 }
 
 /* for My PortFolio Page */
