@@ -151,16 +151,58 @@ a:hover{
     padding: 10px 5px 10px 5px;
     box-sizing: border-box;
     font-style: italic;
-    font-size: small;
+    font-size: 80%;
     color: #acacac;
     background: #c7c7c71f;    
 }
 
+/* Works Page　グリッドレイアウト */
+.contents-grid {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.contents-item {
+    overflow: hidden;
+    position: relative;/*相対配置*/
+	
+}
+
+.contents-item .caption {
+    font-family: 'Righteous', cursive;
+	font-size: 130%;
+	text-align: center;
+	color: #fff;
+}
+.contents-item .mask {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;	/* マスクを表示しない */
+	background-color: rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.6s ease;
+	transition:	all 0.6s ease;
+}
+.contents-item:hover .mask {
+	opacity: 1;	/* マスクを表示する */
+	padding-top: 80px;	/* ホバーで下にずらす */
+}
+
+.contents-item img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+}
+
+
 /* for My PortFolio Page */
 .portfolio--frame{
-    border:solid 1px #000000;
+    /*border:solid 1px #000000;
     border-radius: 10px;
-    box-shadow: 0 0 5px #ffffff;
+    box-shadow: 0 0 5px #ffffff;*/
     margin: 10px 0px;
 }
 
