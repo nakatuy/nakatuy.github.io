@@ -1,5 +1,9 @@
 /*Empty CSS file for your own CSS*/
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #000000;
     color: #c4c4c4;
